@@ -11,18 +11,18 @@ For the Professor Shukla's FA23 CS151 project.<br/>
 | ![](/diagrams/test.png) [State Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/test.png) | ![](/diagrams/test.png) [Sequence Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/test.png) | |
 
 ### Diagram Descriptions
-**Class**
+**Class**<br/>
 description here
-
-**Use Case**
+<br/>
+**Use Case**<br/>
 description here
-
-**State**
+<br/>
+**State**<br/>
 description here
-
-**Sequence**
+<br/>
+**Sequence**<br/>
 description here
-
+<br/>
 
 ## Dependencies
 TODO<br/>
