@@ -2,6 +2,15 @@
 For the Professor Shukla's FA23 CS151 project.<br/>
 <br/>
 
+## Diagrams
+|  |  | 
+| :---: | :---: |
+| **Class** | **Use Case** |
+| ![](/diagrams/test.png) | ![](/diagrams/test.png) |
+| **State** | **Sequence** |
+| ![](/diagrams/test.png) | ![](/diagrams/test.png) | |
+
+
 ## Dependencies
 TODO<br/>
 <br/>
