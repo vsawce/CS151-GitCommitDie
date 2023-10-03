@@ -6,9 +6,22 @@ For the Professor Shukla's FA23 CS151 project.<br/>
 |  |  | 
 | :---: | :---: |
 | **Class** | **Use Case** |
-| ![](/diagrams/test.png) | ![](/diagrams/test.png) |
+| ![](/diagrams/test.png) [Class Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/test.png) | ![](/diagrams/test.png) [Use Case Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/test.png) |
 | **State** | **Sequence** |
-| ![](/diagrams/test.png) | ![](/diagrams/test.png) | |
+| ![](/diagrams/test.png) [State Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/test.png) | ![](/diagrams/test.png) [Sequence Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/test.png) | |
+
+### Diagram Descriptions
+**Class**
+description here
+
+**Use Case**
+description here
+
+**State**
+description here
+
+**Sequence**
+description here
 
 
 ## Dependencies
