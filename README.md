@@ -16,7 +16,7 @@ Opted for the minimum classes (Post, User, and Comment) as well as a Page object
 <br/>
 <br/>
 **Use Case**<br/>
-Shows how users, new and existing, interact with the database and authentication service to create and manage accounts, as well as create, edit, and search posts and comments.
+Shows how users, new and existing, interact with the database and authentication service regarding accounts, posts, and comments. New users are limited to creating accounts and browsing posts and comments, while existing users will be able to manage their accounts as well as create or edit their posts and comments in addition to browsing.
 <br/>
 <br/>
 **State**<br/>
