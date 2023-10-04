@@ -6,9 +6,9 @@ For the Professor Shukla's FA23 CS151 project.<br/>
 |  |  | 
 | :---: | :---: |
 | **Class** | **Use Case** |
-| ![](/diagrams/test.png) [Class Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/test.png) | ![](/diagrams/test.png) [Use Case Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/test.png) |
+| ![](/diagrams/20231003/class.png) [Class Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231003/class.png) | ![](/diagrams/20231003/usecase.png) [Use Case Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231003/usecase.png) |
 | **State** | **Sequence** |
-| ![](/diagrams/test.png) [State Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/test.png) | ![](/diagrams/test.png) [Sequence Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/test.png) | |
+| ![](/diagrams/20231003/state.png) [State Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231003/state.png) | ![](/diagrams/20231003/sequence.png) [Sequence Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/20231003/sequence.png) | |
 
 ### Diagram Descriptions
 **Class**<br/>
