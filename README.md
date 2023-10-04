@@ -15,7 +15,7 @@ For the Professor Shukla's FA23 CS151 project.<br/>
 description here
 <br/>
 **Use Case**<br/>
-description here
+Shows how users, new and existing, interact with the database and authentication service to create and manage accounts, as well as create, edit, and search posts and comments.
 <br/>
 **State**<br/>
 description here
