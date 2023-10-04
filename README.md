@@ -8,7 +8,7 @@ For the Professor Shukla's FA23 CS151 project.<br/>
 | **Class** | **Use Case** |
 | ![](/diagrams/20231003/class.png) [Class Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231003/class.png) | ![](/diagrams/20231003/usecase.png) [Use Case Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231003/usecase.png) |
 | **State** | **Sequence** |
-| ![](/diagrams/20231003/state.png) [State Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231003/state.png) | ![](/diagrams/20231003/sequencediagram.png) [Sequence Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/20231003/sequencediagram.png) | |
+| ![](/diagrams/20231003/state.png) [State Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231003/state.png) | ![](/diagrams/20231003/sequencediagrams.png) [Sequence Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/20231003/sequencediagrams.png) | |
 
 ### Diagram Descriptions
 **Class**<br/>
