@@ -20,6 +20,6 @@ The state diagram was split into three sub-diagrams to illustrate different oper
 <br/>
 <br/>
 **Sequence**<br/>
-description here
+The sequence diagram, similar to the state diagrams, illustrates the sequences for general user sequence, posts, and comments.
 <br/>
 <br/>
