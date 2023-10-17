@@ -2,7 +2,11 @@ public class TextPost {
 
     private String postContents; //
 
-    public String   getTextPost() {
+    public          TextPost(String pc) { //
+        postContents = pc;
+    }
+
+    public String   getTextPost() { //
         return postContents;
     }
     public void     setTextPost(String tp) { //
