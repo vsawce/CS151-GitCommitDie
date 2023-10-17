@@ -1,7 +1,16 @@
+import java.util.Random;
+
 public class Comment {
 
     private String commentText; //
     private int commentId; //
+
+    public Comment(String ct) {
+        commentText = ct;
+
+        Random rn = new Random(); //Random id
+        commentId = rn.nextInt() + 1;
+    }
 
     public String   getCommentText() {
         return commentText;
