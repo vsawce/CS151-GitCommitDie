@@ -20,6 +20,6 @@ The state diagram was split into three sub-diagrams to illustrate different oper
 <br/>
 <br/>
 **Sequence**<br/>
-The sequence diagram, similar to the state diagrams, illustrates the sequences for general user sequence, posts, and comments.
+The sequence diagram was split into three sub-diagrams to describe how classes would interact when the user comments, posts, and logs in/interacts with the home page. It describes, step by step, the actions that the user takes and how they go down class-by-class to create a chain-reaction that displays posts, comments, and the home page to the user. For example, when the user comments, it first determines whether it is a regular comment or reply. Then, a comment is instantiated with the desired text and is added into the comments list in the post(its in the class). Then, the post, along with its updated comment section, is displayed on the post page. 
 <br/>
 <br/>
