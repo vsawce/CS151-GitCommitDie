@@ -1,4 +1,32 @@
+import java.util.ArrayList;
+
 public class User {
+    String name;
+    String password;
+    boolean authStatus;
+
+    User(String name, String password){
+        this.name = name;
+        this.password = password;
+    }
+
+    void setName(String newName)        { this.name = newName; }
+    void setPassword(String newPass)    { this.password = newPass;}
+    void setAuthStatus(boolean newAuth) { this.authStatus = newAuth; }
+
+    String getName()                    { return name; }
+    String getPassword()                { return password; }
+    boolean getAuthStatus()             { return authStatus; }
+
+    boolean checkPassword(String pwAttempt){
+        if (pwAttempt.equals(this.password)) return true;
+        else return false;
+    }
+
+    void deleteAccount(ArrayList list, int index){ list.remove(index); }
+}
+
+/**public class User {
     private String  name; //
     private String  password; // 
     private boolean authStatus; //
@@ -37,4 +65,4 @@ public class User {
         setAuthStatus(passCorrect);
         return passCorrect;
     }
-}
+}**/
