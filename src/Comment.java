@@ -1,4 +1,28 @@
-import java.util.Random;
+import java.util.ArrayList;
+
+public class Comment extends Post{
+    String commentText;
+    int commentID;
+    ArrayList<String> comments;
+
+    public Comment(String comment){
+        commentText = comment;
+    }
+
+    void setCommentText(String commentText) { this.commentText = commentText; }
+    void setCommentID(int commentID)        { this.commentID = commentID; }
+    String getCommentText()                 { return commentText; }
+    int getCommentID()                      { return commentID; }
+
+    String displayComment(int id, String name, String comment, String date, String time){
+        String commentInfo = ("----- CommentID: " + id + "\n" + "      @" + name
+                              + "\n      " + comment + "\n      " + date + " " + time + "\n");
+        System.out.println(commentInfo);
+        return commentInfo;
+    }
+}
+
+/**import java.util.Random;
 
 public class Comment {
 
@@ -25,4 +49,4 @@ public class Comment {
         commentId = cid;
     }
 
-}
+}**/
