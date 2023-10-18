@@ -1,4 +1,34 @@
 import java.util.ArrayList;
+
+public class Post{
+    private User user;
+    private String date;
+    private String time;
+    private int postID;
+    private ArrayList<String> comments = new ArrayList<>();
+
+    public void setUser(User user)      { this.user = user; }
+    public void setDate(String date)    { this.date = date; }
+    public void setTime(String time)    { this.time = time; }
+    public void setPostID(int postID)   { this.postID = postID; }
+
+    public User getUser()               { return user; }
+    public String getDate()             { return date; }
+    public String getTime()             { return time; }
+    public int getPostID()              { return postID; }
+
+    public ArrayList<String> getComments() { return comments;}
+
+    void deletePost(ArrayList list, int index){ list.remove(index); }
+    void setInfo(Post p, User user, int id, String date, String time){
+        p.setUser(user);
+        p.setDate(date);
+        p.setTime(time);
+        p.setPostID(id);
+    }
+}
+
+/**import java.util.ArrayList;
 import java.util.Random;
 
 public class Post {
@@ -53,4 +83,4 @@ public class Post {
     public void     deleteComment(int idx) { //
         comments.remove(idx);
     }
-}
+}**/
