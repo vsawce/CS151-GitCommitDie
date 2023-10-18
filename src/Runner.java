@@ -155,7 +155,7 @@ public class Runner {
 
         c2.deletePost(comments, comments.indexOf(c2));
 
-        print("----- updated list of posts ------\n");
+        print("----- updated list of comments ------\n");
         for (int i = 0; i < comments.size(); i++){
             Comment cm = comments.get(i);
             cm.displayComment(cm.getPostID(), cm.getUser().getName(),
