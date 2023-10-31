@@ -8,15 +8,15 @@
 
 ### Diagram Descriptions
 **Class**<br/>
-Opted for the minimum classes (Post, User, and Comment) as well as a Page object that interacts with Posts and Users. In phase 1's scope, the Page object is responsible for managing the display of post and user information/status.
+Opted for the minimum classes (Post, User, and Comment) as well as a Page object that interacts with Posts and Users. In phase 1's scope, the Page object is responsible for managing the display of post and user information/status. In phase 2, there were additions to the Page, Post, and User classes to handle upvoting, downvoting, karma, and sorting, as well as a new class called KarmaPostSet that deals with limiting each user to upvoting or downvoting a post only once.
 <br/>
 <br/>
 **Use Case**<br/>
-Shows how users, new and existing, interact with the database and authentication service to create and manage accounts, as well as create, edit, and search posts and comments.
+Shows how users, new and existing, interact with the database and authentication service to create and manage accounts, as well as create, edit, and search posts and comments. As of phase 2, the diagram displays the interactions between the users and upvoting/downvoting posts and comments. When viewing posts or comments, users will also be able to sort by date created or amount of karma.
 <br/>
 <br/>
 **State**<br/>
-The state diagram was split into three sub-diagrams to illustrate different operations local to each big-picture operation. For example, there is a simple authentication sub-diagrams to illustrate the user authentication status logic. There is also a "Page Creation/Viewing" sub-diagrams to illustrate the flow of searching for and creating/deleting posts (such as on the homepage or subreddit page). Lastly, there is a sub-diagram for post page operations for leaving comments or editing posts (being on the actual reddit post).
+The state diagram was split into three sub-diagrams to illustrate different operations local to each big-picture operation. For example, there is a simple authentication sub-diagrams to illustrate the user authentication status logic. There is also a "Page Creation/Viewing" sub-diagrams to illustrate the flow of searching for and creating/deleting posts (such as on the homepage or subreddit page) and sorting posts or comments by date created or amount of karma. Lastly, there is a sub-diagram for post page operations for leaving comments, editing, or upvoting/downvoting posts and comments (being on the actual reddit post).
 <br/>
 <br/>
 **Sequence**<br/>
