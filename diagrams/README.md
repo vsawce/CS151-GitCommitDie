@@ -2,9 +2,9 @@
 |  |  | 
 | :---: | :---: |
 | **Class** | **Use Case** |
-| ![](/diagrams/20231003/class.png) [Class Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231003/class.png) | ![](/diagrams/20231003/usecase.png) [Use Case Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231003/usecase.png) |
+| ![](/diagrams/20231031/class.png) [Class Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231031/class.png) | ![](/diagrams/20231003/usecase.png) [Use Case Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231003/usecase.png) |
 | **State** | **Sequence** |
-| ![](/diagrams/20231003/state.png) [State Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231003/state.png) | ![](/diagrams/20231003/sequence.png) [Sequence Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/20231003/sequence.png) | |
+| ![](/diagrams/20231031/state.png) [State Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231031/state.png) | ![](/diagrams/20231003/sequence.png) [Sequence Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/20231003/sequence.png) | |
 
 ### Diagram Descriptions
 **Class**<br/>
