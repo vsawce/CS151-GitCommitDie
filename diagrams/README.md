@@ -2,9 +2,7 @@
 |  |  | 
 | :---: | :---: |
 | **Class** | **Use Case** |
-| ![](/diagrams/20231031/class.png) [Class Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231031/class.png) | ![](/diagrams/20231031/usecase.png) [Use Case Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231031/usecase.png) |
-| **State** | **Sequence** |
-| ![](/diagrams/20231031/state.png) [State Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231031/state.png) | ![](/diagrams/20231031/sequence.png) [Sequence Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/20231031/sequence.png) | |
+| ![](/diagrams/20231031/state_auth.png) [Authentication State Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231031/state_auth.png) ![](/diagrams/20231031/state_post.png) [Post State Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231031/state_post.png) ![](/diagrams/20231031/state_postcreateview.png) [Post Creation/Viewing State Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231031/state_postcreateview.png) | ![](/diagrams/20231031/sequence_user.png) [User Sequence Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231031/sequence_user.png) ![](/diagrams/20231031/sequence_post.png) [Post Sequence Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231031/sequence_post.png) ![](/diagrams/20231031/sequence_comment.png) [Comment Sequence Diagram Link](https://github.com/vsawce/CS151-GitCommitDie/blob/main/diagrams/20231031/sequence_comment.png) |
 
 ### Diagram Descriptions
 **Class**<br/>
