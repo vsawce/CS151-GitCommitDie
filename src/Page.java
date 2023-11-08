@@ -31,4 +31,7 @@ public class Page {
         displayCurrComment();
         System.out.println("------------------------");
     }
+
+    void sortByTime(ArrayList list){}
+    void sortByKarma(ArrayList list){}
 }
