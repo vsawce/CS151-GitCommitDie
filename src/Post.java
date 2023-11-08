@@ -5,6 +5,7 @@ public class Post{
     private String date;
     private String time;
     private int postID;
+    private int karma;
     private ArrayList<String> comments = new ArrayList<>();
 
     public void setUser(User user)      { this.user = user; }
@@ -16,6 +17,7 @@ public class Post{
     public String getDate()             { return date; }
     public String getTime()             { return time; }
     public int getPostID()              { return postID; }
+    public int getKarma()               { return karma; }
 
     public ArrayList<String> getComments() { return comments;}
 
@@ -26,6 +28,9 @@ public class Post{
         p.setTime(time);
         p.setPostID(id);
     }
+
+    void incrementKarma(){ karma++; }
+    void decrementKarma(){ karma--; }
 }
 
 /**import java.util.ArrayList;
