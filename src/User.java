@@ -4,6 +4,8 @@ public class User {
     String name;
     String password;
     boolean authStatus;
+    int totalKarma;
+    ArrayList<KarmaPostSet> kpSet;
 
     User(String name, String password){
         this.name = name;
@@ -13,10 +15,17 @@ public class User {
     void setName(String newName)        { this.name = newName; }
     void setPassword(String newPass)    { this.password = newPass;}
     void setAuthStatus(boolean newAuth) { this.authStatus = newAuth; }
+    void updateKarma(){}
 
     String getName()                    { return name; }
     String getPassword()                { return password; }
     boolean getAuthStatus()             { return authStatus; }
+    int getKarma()                      { return totalKarma; }
+
+    int getPostKarmaState(int pid){
+        KarmaPostSet post = kpSet.get(pid);
+        return post.getUserKarmaState();
+    }
 
     boolean checkPassword(String pwAttempt){
         if (pwAttempt.equals(this.password)) return true;
