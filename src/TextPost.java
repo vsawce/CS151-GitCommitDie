@@ -1,12 +1,14 @@
 public class TextPost extends Post{
     String postContents;
-    public TextPost(String post) { postContents = post; }
+    public TextPost(String post) {
+        super();
+        postContents = post; }
     void setTextPost(String postContents){ this.postContents = postContents; }
     String getTextPost() { return postContents; }
 
-    String displayPost(int id, String name, String post, String date, String time){
+    String displayPost(int id, String name, String post, String date, String time, int karma){
         String postInfo = ("PostID: " + id + "\n" + "@" + name + "\n"
-                + post + "\n" + date + " " + time + "\n");
+                + post + "\nKarma: " + karma + "\n" + date + " " + time + "\n");
         System.out.println(postInfo);
         return postInfo;
     }
