@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Page {
     //private int     pageType;
     private User     currUser;
@@ -21,7 +23,7 @@ public class Page {
     String displayCurrPost() {
         return currPost.displayPost(currPost.getPostID(),
                 currUser.getName(), currPost.getTextPost(),
-                currPost.getDate(), currPost.getTime());
+                currPost.getDate(), currPost.getTime(), currPost.getKarma());
     }
 
     void displayPage(){
