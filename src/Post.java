@@ -12,6 +12,7 @@ public class Post{
     public void setDate(String date)    { this.date = date; }
     public void setTime(String time)    { this.time = time; }
     public void setPostID(int postID)   { this.postID = postID; }
+    public void setKarma (int karma)    { this.karma = karma; }
 
     public User getUser()               { return user; }
     public String getDate()             { return date; }
@@ -22,11 +23,12 @@ public class Post{
     public ArrayList<String> getComments() { return comments;}
 
     void deletePost(ArrayList list, int index){ list.remove(index); }
-    void setInfo(Post p, User user, int id, String date, String time){
+    void setInfo(Post p, User user, int id, String date, String time, int karma){
         p.setUser(user);
         p.setDate(date);
         p.setTime(time);
         p.setPostID(id);
+        p.setKarma(karma);
     }
 
     void incrementKarma(){ karma++; }
