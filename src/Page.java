@@ -19,7 +19,9 @@ public class Page {
     String displayCurrComment() {
         return currComment.displayComment(currComment.getPostID(),
                 currUser.getName(), currComment.getCommentText(),
-                currComment.getDate(), currComment.getTime());};
+                currComment.getKarma(),
+                currComment.getDate(), currComment.getTime());
+    }
     String displayCurrPost() {
         return currPost.displayPost(currPost.getPostID(),
                 currUser.getName(), currPost.getTextPost(),

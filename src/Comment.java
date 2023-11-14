@@ -14,9 +14,10 @@ public class Comment extends Post{
     String getCommentText()                 { return commentText; }
     int getCommentID()                      { return commentID; }
 
-    String displayComment(int id, String name, String comment, String date, String time){
+    String displayComment(int id, String name, String comment, int karma, String date, String time){
         String commentInfo = ("----- CommentID: " + id + "\n" + "      @" + name
-                              + "\n      " + comment + "\n      " + date + " " + time + "\n");
+                              + "\n      " + comment + "\n      Karma: " + karma
+                              + "\n      " + date + " " + time + "\n");
         System.out.println(commentInfo);
         return commentInfo;
     }

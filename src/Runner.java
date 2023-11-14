@@ -124,13 +124,13 @@ public class Runner {
 
         //read comment
         comment.displayComment(comment.getCommentID(),post.getUser().getName(),
-                comment.getCommentText(),comment.getDate(),comment.getTime());
+                comment.getCommentText(),comment.getKarma(),comment.getDate(),comment.getTime());
 
         //update comment
         print("UPDATING A COMMENT");
         comment.setCommentText("updated test comment");
         comment.displayComment(comment.getCommentID(),post.getUser().getName(),
-                comment.getCommentText(), comment.getDate(),comment.getTime());
+                comment.getCommentText(),comment.getKarma(),comment.getDate(),comment.getTime());
 
         //deleting comment
         print("DELETING A COMMENT" + "\n----- initial list of comments -----\n");
@@ -150,7 +150,7 @@ public class Runner {
         for (int i = 0; i < comments.size(); i++) {
             Comment cm = comments.get(i);
             cm.displayComment(cm.getPostID(), cm.getUser().getName(),
-                    cm.getCommentText(), cm.getDate(), cm.getTime());
+                    cm.getCommentText(), cm.getKarma(), cm.getDate(), cm.getTime());
         }
 
         c2.deletePost(comments, comments.indexOf(c2));
@@ -159,7 +159,7 @@ public class Runner {
         for (int i = 0; i < comments.size(); i++){
             Comment cm = comments.get(i);
             cm.displayComment(cm.getPostID(), cm.getUser().getName(),
-                    cm.getCommentText(), cm.getDate(), cm.getTime());
+                    cm.getCommentText(), cm.getKarma(), cm.getDate(), cm.getTime());
         }
         print("--------------------------------");
 
