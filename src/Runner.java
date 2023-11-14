@@ -19,7 +19,7 @@ public class Runner {
     } **/
 
     public static void print(String s) { System.out.println(s); }
-    public static String time() { return java.time.LocalDate.now().toString(); }
+    public static String time() { return java.time.LocalTime.now().toString(); }
     public static String date() { return java.time.LocalDate.now().toString(); }
 
     public static void main(String[] args) {
@@ -77,17 +77,17 @@ public class Runner {
         print("\nCREATING A POST");
         Random r = new Random();
         TextPost post = new TextPost("test post");
-        post.setInfo(post, user, r.nextInt(1000), date(), time());
+        post.setInfo(post, user, r.nextInt(1000), date(), time(), 10);
 
         //read post
         post.displayPost(post.getPostID(), post.getUser().getName(),
-                post.getTextPost(), post.getDate(), post.getTime());
+                post.getTextPost(), post.getDate(), post.getTime(), 5);
 
         //update post
         print("UPDATING A POST");
         post.setTextPost("updated test post");
         post.displayPost(post.getPostID(), post.getUser().getName(),
-                post.getTextPost(), post.getDate(), post.getTime());
+                post.getTextPost(), post.getDate(), post.getTime(), -3);
 
         //deleting post
         print("DELETING A POST" + "\n----- initial list of posts -----\n");
@@ -95,15 +95,15 @@ public class Runner {
         ArrayList<TextPost> posts = new ArrayList<>();
 
         TextPost one = new TextPost("test post number one");
-        one.setInfo(one, user, r.nextInt(1000), date(), time());
+        one.setInfo(one, user, r.nextInt(1000), date(), time(), 15);
 
         TextPost two = new TextPost("test post number two");
-        two.setInfo(two, user, r.nextInt(1000), date(), time());
+        two.setInfo(two, user, r.nextInt(1000), date(), time(), 24);
 
         one.displayPost(one.getPostID(), one.getUser().getName(),
-                one.getTextPost(), one.getDate(), one.getTime());
+                one.getTextPost(), one.getDate(), one.getTime(), -5);
         two.displayPost(two.getPostID(), two.getUser().getName(),
-                two.getTextPost(), two.getDate(), two.getTime());
+                two.getTextPost(), two.getDate(), two.getTime(), 12);
 
         posts.add(one);
         posts.add(two);
@@ -113,18 +113,18 @@ public class Runner {
         for (int i = 0; i < posts.size(); i++){
             post = posts.get(i);
             post.displayPost(post.getPostID(), post.getUser().getName(),
-                    post.getTextPost(), post.getDate(), post.getTime());
+                    post.getTextPost(), post.getDate(), post.getTime(), 45);
         }
         print("--------------------------------");
 
         //creating comment
         print("\nCREATING A COMMENT");
         Comment comment = new Comment("test comment");
-        comment.setInfo(comment, user, r.nextInt(1000), date(), time());
+        comment.setInfo(comment, user, r.nextInt(1000), date(), time(), 12);
 
         //read comment
         comment.displayComment(comment.getCommentID(),post.getUser().getName(),
-                comment.getCommentText(), comment.getDate(),comment.getTime());
+                comment.getCommentText(),comment.getDate(),comment.getTime());
 
         //update comment
         print("UPDATING A COMMENT");
@@ -139,9 +139,9 @@ public class Runner {
         Comment c2 = new Comment("test comment number 2");
         Comment c3 = new Comment("test comment number 3");
 
-        c1.setInfo(c1, user, r.nextInt(1000), date(), time());
-        c2.setInfo(c2, user, r.nextInt(1000), date(), time());
-        c3.setInfo(c3, user, r.nextInt(1000), date(), time());
+        c1.setInfo(c1, user, r.nextInt(1000), date(), time(), 39);
+        c2.setInfo(c2, user, r.nextInt(1000), date(), time(), 12);
+        c3.setInfo(c3, user, r.nextInt(1000), date(), time(), 72);
 
         comments.add(c1);
         comments.add(c2);
@@ -163,14 +163,58 @@ public class Runner {
         }
         print("--------------------------------");
 
+        // Upvoting a post
+        print("\nUPVOTING A POST");
+        Random rand = new Random();
+        TextPost likedPost = new TextPost("This post has 1 karma!");
+        likedPost.setInfo(likedPost, user1, rand.nextInt(1000), date(), time(), likedPost.getKarma());
+        KarmaPostSet kPost = new KarmaPostSet(likedPost.getPostID(), 0, false);
+        if (kPost.getUserKarmaState() == 1 || kPost.getUserKarmaState() == 2) {
+            System.out.println("You already left karma on this post.");
+        }
+        else {
+            likedPost.incrementKarma();
+            kPost.userKarmaState = 1;
+        }
+        likedPost.displayPost(likedPost.getPostID(), user1.getName(), likedPost.getTextPost(),
+                likedPost.getDate(), likedPost.getTime(), likedPost.getKarma());
+
+        // Downvoting a post
+        print("\nDOWNVOTING A POST");
+        Random rand1 = new Random();
+        TextPost dislikedPost = new TextPost("This post has -1 karma..");
+        dislikedPost.setInfo(dislikedPost, user2, rand1.nextInt(1000), date(), time(), dislikedPost.getKarma());
+        KarmaPostSet kPost1 = new KarmaPostSet(dislikedPost.getPostID(), 0, false);
+        if (kPost1.getUserKarmaState() == 1 || kPost1.getUserKarmaState() == 2) {
+            System.out.println("You already left karma on this post.");
+        }
+        else {
+            dislikedPost.decrementKarma();
+            kPost1.userKarmaState = 2;
+        }
+        dislikedPost.displayPost(dislikedPost.getPostID(), user2.getName(), dislikedPost.getTextPost(),
+                dislikedPost.getDate(), dislikedPost.getTime(), dislikedPost.getKarma());
+
+        print("\nALLOWING ONLY ONE KARMA PER USER PER POST");
+        dislikedPost.setInfo(dislikedPost, user2, dislikedPost.getPostID(), date(), time(), dislikedPost.getKarma());
+        if (kPost1.getUserKarmaState() == 1 || kPost1.getUserKarmaState() == 2) {
+            System.out.println("You already left karma on this post.");
+        }
+        else {
+            likedPost.decrementKarma();
+            kPost1.userKarmaState = 2;
+        }
+        dislikedPost.displayPost(dislikedPost.getPostID(), user2.getName(), dislikedPost.getTextPost(),
+                dislikedPost.getDate(), dislikedPost.getTime(), dislikedPost.getKarma());
+
         //page
         User sampleUser = new User("sampleuser", "samplepassword");
 
         TextPost sampleTextPost = new TextPost("This is a sample post.");
-        sampleTextPost.setInfo(sampleTextPost, sampleUser, r.nextInt(1000), date(), time());
+        sampleTextPost.setInfo(sampleTextPost, sampleUser, r.nextInt(1000), date(), time(), 23);
 
         Comment sampleComment = new Comment("This is a sample comment");
-        sampleComment.setInfo(sampleComment, sampleUser, r.nextInt(1000), date(), time());
+        sampleComment.setInfo(sampleComment, sampleUser, r.nextInt(1000), date(), time(), 88);
 
         Page page = new Page();
         page.setCurrUser(sampleUser);
