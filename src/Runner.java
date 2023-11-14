@@ -221,5 +221,13 @@ public class Runner {
         page.setCurrPost(sampleTextPost);
         page.setCurrComment(sampleComment);
         page.displayPage();
+
+        print("\n****** USER KARMA SUMMARY ******\n");
+        print("user karma: " + user.getKarma());
+        print("user1 karma: " + user1.getKarma());
+        print("user2 karma: " + user2.getKarma());
+        print("user3 karma: " + user3.getKarma());
+        print("sampleUser karma: " + sampleUser.getKarma());
+
     }
 }

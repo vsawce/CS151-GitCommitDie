@@ -29,6 +29,7 @@ public class Post{
         p.setTime(time);
         p.setPostID(id);
         p.setKarma(karma);
+        this.user.addAssociatedPost(this); //Associates post with user once setInfo is called
     }
 
     void incrementKarma(){ karma++; }

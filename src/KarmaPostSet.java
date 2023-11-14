@@ -9,6 +9,7 @@ public class KarmaPostSet {
     int getUserKarmaState() { return userKarmaState; }
     boolean getIsComment()  { return isComment; }
 
+    //For tracking if users have already upvoted/downvoted something
     //0 = untouched
     //1 = upvoted
     //2 = downvoted

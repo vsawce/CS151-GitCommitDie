@@ -6,21 +6,35 @@ public class User {
     boolean authStatus;
     int totalKarma;
     ArrayList<KarmaPostSet> kpSet;
+    ArrayList<Post> associatedPosts;
 
     User(String name, String password){
         this.name = name;
         this.password = password;
+        this.associatedPosts = new ArrayList<>(); //Allocate memory for ArrayList
     }
 
     void setName(String newName)        { this.name = newName; }
     void setPassword(String newPass)    { this.password = newPass;}
     void setAuthStatus(boolean newAuth) { this.authStatus = newAuth; }
-    void updateKarma(){}
 
     String getName()                    { return name; }
     String getPassword()                { return password; }
     boolean getAuthStatus()             { return authStatus; }
-    int getKarma()                      { return totalKarma; }
+    int getKarma() {
+        updateKarma(); //Update before getting karma
+        return totalKarma;
+    }
+
+    void addAssociatedPost(Post p)      { associatedPosts.add(p); }
+    void displayAssociatedPosts()       { System.out.println(associatedPosts); }
+    void updateKarma() {
+        int karmaSum = 0;
+        for (Post p : associatedPosts) {
+            karmaSum += p.getKarma();
+        }
+        totalKarma = karmaSum;
+    }
 
     int getPostKarmaState(int pid){
         KarmaPostSet post = kpSet.get(pid);
