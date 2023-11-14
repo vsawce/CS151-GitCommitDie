@@ -9,5 +9,8 @@ public class KarmaPostSet {
     int getUserKarmaState() { return userKarmaState; }
     boolean getIsComment()  { return isComment; }
 
-    void setUserKarma(int uks){}
+    //0 = untouched
+    //1 = upvoted
+    //2 = downvoted
+    void setUserKarmaState (int uks) { userKarmaState = uks; }
 }
