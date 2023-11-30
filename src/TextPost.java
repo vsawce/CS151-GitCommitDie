@@ -6,9 +6,11 @@ public class TextPost extends Post{
     void setTextPost(String postContents){ this.postContents = postContents; }
     String getTextPost() { return postContents; }
 
-    String displayPost(int id, String name, String post, String date, String time, int karma){
+    //String displayPost(int id, String name, String post, String date, String time, int karma){
+    String displayPost(int id, String name, String post, long time, int karma){
+
         String postInfo = ("PostID: " + id + "\n" + "@" + name + "\n"
-                + post + "\nKarma: " + karma + "\n" + date + " " + time + "\n");
+                + post + "\nKarma: " + karma + "\n" + epochToReadableDateString(time) + "\n");
         System.out.println(postInfo);
         return postInfo;
     }

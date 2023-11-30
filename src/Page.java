@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 
 public class Page {
     //private int     pageType;
@@ -21,13 +23,12 @@ public class Page {
     String displayCurrComment() {
         return currComment.displayComment(currComment.getPostID(),
                 currUser.getName(), currComment.getCommentText(),
-                currComment.getKarma(),
-                currComment.getDate(), currComment.getTime());
+                currComment.getKarma(), currComment.getTime());
     }
     String displayCurrPost() {
         return currPost.displayPost(currPost.getPostID(),
                 currUser.getName(), currPost.getTextPost(),
-                currPost.getDate(), currPost.getTime(), currPost.getKarma());
+                currPost.getTime(), currPost.getKarma());
     }
 
     void displayPage(){
@@ -42,27 +43,11 @@ public class Page {
         
         Collections.sort(posts, (n1,n2) -> {
 
-            int n1Month = Integer.parseInt(n1.getDate().subString(5, 7));
-            
-            int n2Month = Integer.parseInt(n2.getDate().subString(5, 7));
-            int n1Day = Integer.parseInt(n1.getDate().subString(8, 10));
-            int n2Day = Integer.parseInt(n2.getDate().subString(8, 10));
-            int n1Year = Integer.parseInt(n1.getDate().subString(0, 4));
-            int n2Year = Integer.parseInt(n2.getDate().subString(0, 4));
-
-            int n1TimeHr = Integer.parseInt(n1.getTime().subString(0, 2));
-            int n2TimeHr = Integer.parseInt(n2.getTime().subString(0, 2));
-            int n1TimeMin = Integer.parseInt(n1.getTime().subString(3, 5));
-            int n2TimeMin = Integer.parseInt(n2.getTime().subString(3, 5));
-            int n1TimeSec = Integer.parseInt(n1.getTime().subString(6, 8));
-            int n2TimeSec = Integer.parseInt(n2.getTime().subString(6, 8));
-            Date1 = new Date(n1Year, n1Month, n1Day, n1TimeHr, n1TimeMin, n1TimeSec);
-            Date2 = new Date(n2Year, n2Month, n2Day, n2TimeHr, n2TimeMin, n2TimeSec);
+            Date Date1 = new Date();
+            Date Date2 = new Date();
 
             return Date1.compareTo(Date2);
-        } );
-
-        
+        } );  
     }
     void sortByKarma(){
 
