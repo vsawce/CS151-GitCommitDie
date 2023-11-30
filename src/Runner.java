@@ -43,6 +43,7 @@ public class Runner {
         Scanner myObj = new Scanner(System.in);
         print("confirm password:");
         String confirmPassword = myObj.nextLine();
+        myObj.close(); //Close scanner to prevent resource leak & warning
 
         if (user.checkPassword(confirmPassword)) {
             print("Passwords match. Login successful.");
