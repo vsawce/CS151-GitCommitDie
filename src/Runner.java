@@ -2,6 +2,10 @@
 // FileName : "HelloWorld.java". 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
+import org.w3c.dom.Text;
+
 import java.util.Random;
 
 public class Runner { 
@@ -23,213 +27,204 @@ public class Runner {
     //public static String time() { return java.time.LocalTime.now().toString(); }
     //public static String date() { return java.time.LocalDate.now().toString(); }
 
+    //For class demo only
+    public static void delayMs(long timeout) {
+        try {
+            // Sleep for 3 seconds
+            TimeUnit.SECONDS.sleep(timeout);
+        } catch (InterruptedException e) {
+            // Handle the InterruptedException (if necessary)
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
+        Scanner myObj = new Scanner(System.in);
+        Page page = new Page();
 
         //creating a user
-        print("CREATING A USER");
-        User user = new User("newuser", "password123");
-        print("username: " + user.getName());
-        print("password: " + user.getPassword());
+        print("###### Let's create Vincent's account #######");
+        print("****** CREATING USER ******");
+        User user1 = new User("vsawce", "abc123");
+        print("username: " + user1.getName());
+        print("password: " + user1.getPassword());
 
-        //changing username and password
-        print("\nUPDATING USER");
-        user.setName("username123");
-        user.setPassword("123password");
-        print("username: " + user.getName());
-        print("password: " + user.getPassword());
+        myObj.nextLine(); //demo breakpoint //////////////////////////////////////////////////////
+
+        //creating second user
+        print("###### Let's create Victorias's account #######");
+        print("****** CREATING USER ******");
+        User user2 = new User("levictoria0117", "abc123");
+        print("username: " + user2.getName());
+        print("password: " + user2.getPassword());
+
+        myObj.nextLine(); //demo breakpoint //////////////////////////////////////////////////////
 
         //checking login information
-        print("\nCHECKING LOGIN INFORMATION");
-        Scanner myObj = new Scanner(System.in);
-        print("confirm password:");
-        String confirmPassword = myObj.nextLine();
-        myObj.close(); //Close scanner to prevent resource leak & warning
-
-        if (user.checkPassword(confirmPassword)) {
-            print("Passwords match. Login successful.");
-            user.setAuthStatus(true);
+        print("###### Let's log Vincent in #######");
+        print("****** CHECKING LOGIN INFO ******");
+        boolean authSuccess = false;
+        while (!authSuccess) {
+            System.out.print("confirm password: ");
+            String confirmPassword = myObj.nextLine();
+            if (user1.checkPassword(confirmPassword)) {
+                print("Passwords match. Login successful.");
+                user1.setAuthStatus(true);
+            }
+            else{
+                print("Passwords do not match. Please try again.");
+                user1.setAuthStatus(false);
+            }
+            authSuccess = user1.getAuthStatus();
+            System.out.println("User " + user1.getName() + " is authorized: " + user1.getAuthStatus() + "\n");
         }
-        else{
-            print("Passwords do not match. Please try again.");
-            user.setAuthStatus(false);
-        }
-        System.out.println("User is authorized: " + user.getAuthStatus() + "\n");
 
         //viewing users
-        print("VIEW USERS");
-        User user1 = new User("user1", "password1");
-        User user2 = new User("user2", "password2");
-        User user3 = new User("user3", "password3");
+        print("****** USER & PASSWORD LIST ******");
 
         ArrayList<String> userInfo = new ArrayList<>();
         userInfo.add(user1.getName() + " " + user1.getPassword());
         userInfo.add(user2.getName() + " " + user2.getPassword());
-        userInfo.add(user3.getName() + " " + user3.getPassword());
 
         print("list of users:");
         for (int i = 0; i < userInfo.size(); i++) print(userInfo.get(i));
 
-        //deleting users
-        print("\nDELETING A USER");
-        user1.deleteAccount(userInfo, 1);
-        print("updated list of users:");
-        for (int i = 0; i < userInfo.size(); i++) print(userInfo.get(i));
+        myObj.nextLine(); //demo breakpoint //////////////////////////////////////////////////////
 
         //creating a post
-        print("\nCREATING A POST");
+        print("****** CREATING A POST ******");
+
         Random r = new Random();
-        TextPost post = new TextPost("test post");
-        post.setInfo(post, user, r.nextInt(1000), time(), 10);
+        String postString = "";
+        do {
+            postString = myObj.nextLine();
+        } while (postString.trim().length() == 0); //While whitespace present
 
-        //read post
-        post.displayPost(post.getPostID(), post.getUser().getName(),
-                post.getTextPost(), post.getTime(), 5);
+        TextPost post1 = new TextPost(postString);
+        post1.setInfo(post1, user1, r.nextInt(1000), time(), 1);
+        page.addPostToView(post1);
 
-        //update post
-        print("UPDATING A POST");
-        post.setTextPost("updated test post");
-        post.displayPost(post.getPostID(), post.getUser().getName(),
-                post.getTextPost(), post.getTime(), -3);
+        print("");
+        print("****** VIEWING ALL POSTS ******");
+        page.displayListOfPosts();
 
-        //deleting post
-        print("DELETING A POST" + "\n----- initial list of posts -----\n");
+        myObj.nextLine(); //demo breakpoint //////////////////////////////////////////////////////
 
-        ArrayList<TextPost> posts = new ArrayList<>();
+        //creating a post
+        print("****** CREATING A POST ******");
 
-        TextPost one = new TextPost("test post number one");
-        one.setInfo(one, user, r.nextInt(1000), time(), 15);
+        r = new Random();
+        postString = "";
+        do {
+            postString = myObj.nextLine();
+        } while (postString.trim().length() == 0); //While whitespace present
 
-        TextPost two = new TextPost("test post number two");
-        two.setInfo(two, user, r.nextInt(1000), time(), 24);
+        TextPost post2 = new TextPost(postString);
+        post2.setInfo(post2, user1, r.nextInt(1000), time(), 1);
+        page.addPostToView(post2);
+        
+        print("");
+        print("****** VIEWING ALL POSTS ******");
+        page.displayListOfPosts();
 
-        one.displayPost(one.getPostID(), one.getUser().getName(),
-                one.getTextPost(), one.getTime(), -5);
-        two.displayPost(two.getPostID(), two.getUser().getName(),
-                two.getTextPost(), two.getTime(), 12);
+        myObj.nextLine(); //demo breakpoint //////////////////////////////////////////////////////
 
-        posts.add(one);
-        posts.add(two);
+        //Signing vincent out
+        print("###### Let's sign Vincent out ######");
+        print("****** SIGNING OUT ******");
+        user1.setAuthStatus(false);
+        System.out.println("Signing user " + user1.getName() + " out.");
+        System.out.println("User " + user1.getName() + " is authorized: " + user1.getAuthStatus() + "\n");
 
-        one.deletePost(posts, posts.indexOf(one));
-        print("----- updated list of posts ------\n");
-        for (int i = 0; i < posts.size(); i++){
-            post = posts.get(i);
-            post.displayPost(post.getPostID(), post.getUser().getName(),
-                    post.getTextPost(), post.getTime(), 45);
-        }
-        print("--------------------------------");
+        myObj.nextLine(); //demo breakpoint //////////////////////////////////////////////////////
 
-        //creating comment
-        print("\nCREATING A COMMENT");
-        Comment comment = new Comment("test comment");
-        comment.setInfo(comment, user, r.nextInt(1000), time(), 12);
-
-        //read comment
-        comment.displayComment(comment.getCommentID(),post.getUser().getName(),
-                comment.getCommentText(),comment.getKarma(),comment.getTime());
-
-        //update comment
-        print("UPDATING A COMMENT");
-        comment.setCommentText("updated test comment");
-        comment.displayComment(comment.getCommentID(),post.getUser().getName(),
-                comment.getCommentText(),comment.getKarma(),comment.getTime());
-
-        //deleting comment
-        print("DELETING A COMMENT" + "\n----- initial list of comments -----\n");
-        ArrayList<Comment> comments = new ArrayList<>();
-        Comment c1 = new Comment("test comment number 1");
-        Comment c2 = new Comment("test comment number 2");
-        Comment c3 = new Comment("test comment number 3");
-
-        c1.setInfo(c1, user, r.nextInt(1000), time(), 39);
-        c2.setInfo(c2, user, r.nextInt(1000), time(), 12);
-        c3.setInfo(c3, user, r.nextInt(1000), time(), 72);
-
-        comments.add(c1);
-        comments.add(c2);
-        comments.add(c3);
-
-        for (int i = 0; i < comments.size(); i++) {
-            Comment cm = comments.get(i);
-            cm.displayComment(cm.getPostID(), cm.getUser().getName(),
-                    cm.getCommentText(), cm.getKarma(), cm.getTime());
+        //checking login information
+        print("###### Let's log Victoria in #######");
+        print("****** CHECKING LOGIN INFO ******");
+        authSuccess = false;
+        while (!authSuccess) {
+            System.out.print("confirm password: ");
+            String confirmPassword = myObj.nextLine();
+            if (user2.checkPassword(confirmPassword)) {
+                print("Passwords match. Login successful.");
+                user2.setAuthStatus(true);
+            }
+            else{
+                print("Passwords do not match. Please try again.");
+                user2.setAuthStatus(false);
+            }
+            authSuccess = user2.getAuthStatus();
+            System.out.println("User " + user2.getName() + " is authorized: " + user2.getAuthStatus() + "\n");
         }
 
-        c2.deletePost(comments, comments.indexOf(c2));
-
-        print("----- updated list of comments ------\n");
-        for (int i = 0; i < comments.size(); i++){
-            Comment cm = comments.get(i);
-            cm.displayComment(cm.getPostID(), cm.getUser().getName(),
-                    cm.getCommentText(), cm.getKarma(), cm.getTime());
+        print("###### Let's select a post to upvote from Victoria's account #######");
+        print("****** SELECTING POST ******");
+        boolean isNum = false;
+        int postIdx = -1;
+        while (!isNum) {
+            System.out.print("Post index (starting from 0): ");
+            String s = myObj.nextLine();
+            try {
+                postIdx = Integer.parseInt(s);
+                if (postIdx > page.getNumberOfPosts() || postIdx < 0) {
+                    System.out.println("Invalid index, try again");
+                    isNum = false;
+                }
+                else {
+                    System.out.println("Selected post index: " + postIdx);
+                    isNum = true;
+                }
+            }
+            catch (NumberFormatException e) {
+                System.out.println("Invalid index, try again");
+                isNum = false;
+            }
         }
-        print("--------------------------------");
+        print("");
+        
+        TextPost selPost = page.getTextPostFromList(postIdx);
+
+        myObj.nextLine(); //demo breakpoint //////////////////////////////////////////////////////
 
         // Upvoting a post
-        print("\nUPVOTING A POST");
-        Random rand = new Random();
-        TextPost likedPost = new TextPost("This post has 1 karma!");
-        likedPost.setInfo(likedPost, user1, rand.nextInt(1000), time(), likedPost.getKarma());
-        KarmaPostSet kPost = new KarmaPostSet(likedPost.getPostID(), 0, false);
+        print("****** UPVOTING POST IDX " + postIdx + " ******");
+        
+        KarmaPostSet kPost = new KarmaPostSet(selPost.getPostID(), 0, false);
         if (kPost.getUserKarmaState() == 1 || kPost.getUserKarmaState() == 2) {
             System.out.println("You already left karma on this post.");
         }
         else {
-            likedPost.incrementKarma();
+            selPost.incrementKarma();
             kPost.userKarmaState = 1;
         }
-        likedPost.displayPost(likedPost.getPostID(), user1.getName(),
-                likedPost.getTextPost(), likedPost.getTime(), likedPost.getKarma());
 
-        // Downvoting a post
-        print("\nDOWNVOTING A POST");
-        Random rand1 = new Random();
-        TextPost dislikedPost = new TextPost("This post has -1 karma..");
-        dislikedPost.setInfo(dislikedPost, user2, rand1.nextInt(1000), time(), dislikedPost.getKarma());
-        KarmaPostSet kPost1 = new KarmaPostSet(dislikedPost.getPostID(), 0, false);
-        if (kPost1.getUserKarmaState() == 1 || kPost1.getUserKarmaState() == 2) {
-            System.out.println("You already left karma on this post.");
-        }
-        else {
-            dislikedPost.decrementKarma();
-            kPost1.userKarmaState = 2;
-        }
-        dislikedPost.displayPost(dislikedPost.getPostID(), user2.getName(), dislikedPost.getTextPost(),
-                dislikedPost.getTime(), dislikedPost.getKarma());
+        myObj.nextLine(); //demo breakpoint //////////////////////////////////////////////////////
 
-        print("\nALLOWING ONLY ONE KARMA PER USER PER POST");
-        dislikedPost.setInfo(dislikedPost, user2, dislikedPost.getPostID(), time(), dislikedPost.getKarma());
-        if (kPost1.getUserKarmaState() == 1 || kPost1.getUserKarmaState() == 2) {
-            System.out.println("You already left karma on this post.");
-        }
-        else {
-            likedPost.decrementKarma();
-            kPost1.userKarmaState = 2;
-        }
-        dislikedPost.displayPost(dislikedPost.getPostID(), user2.getName(), dislikedPost.getTextPost(),
-                dislikedPost.getTime(), dislikedPost.getKarma());
+        print("****** VIEWING ALL POSTS ******");
+        page.displayListOfPosts();
 
-        //page
-        User sampleUser = new User("sampleuser", "samplepassword");
+        myObj.nextLine(); //demo breakpoint //////////////////////////////////////////////////////
 
-        TextPost sampleTextPost = new TextPost("This is a sample post.");
-        sampleTextPost.setInfo(sampleTextPost, sampleUser, r.nextInt(1000), time(), 23);
+        print("###### Let's say we want to sort by time, descending #######");
+        boolean a = false;
+        page.sortByTime(a);
+        print("****** VIEWING ALL POSTS (SORTED BY TIME, ASCENDING:" + a + ") ******");
+        page.displayListOfPosts();
 
-        Comment sampleComment = new Comment("This is a sample comment");
-        sampleComment.setInfo(sampleComment, sampleUser, r.nextInt(1000), time(), 88);
+        myObj.nextLine(); //demo breakpoint //////////////////////////////////////////////////////
 
-        Page page = new Page();
-        page.setCurrUser(sampleUser);
-        page.setCurrPost(sampleTextPost);
-        page.setCurrComment(sampleComment);
-        page.displayPage();
+        print("###### Let's say we want to sort by karma, ascending #######");
+        a = true;
+        page.sortByKarma(a);
+        print("****** VIEWING ALL POSTS (SORTED BY TIME, ASCENDING:" + a + ") ******");
+        page.displayListOfPosts();
 
-        print("\n****** USER KARMA SUMMARY ******\n");
-        print("user karma: " + user.getKarma());
-        print("user1 karma: " + user1.getKarma());
-        print("user2 karma: " + user2.getKarma());
-        print("user3 karma: " + user3.getKarma());
-        print("sampleUser karma: " + sampleUser.getKarma());
+        myObj.nextLine(); //demo breakpoint //////////////////////////////////////////////////////
 
+        print("****** USER KARMA SUMMARY ******");
+        print("" + user1.getName() + " karma: " + user1.getKarma());
+        print("" + user2.getName() + " karma: " + user2.getKarma());
+
+        myObj.close(); //Close scanner to prevent resource leak & warning
     }
 }

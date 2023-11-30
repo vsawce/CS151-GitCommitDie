@@ -8,7 +8,7 @@ public class Page {
     private User     currUser;
     private TextPost currPost;
     private Comment  currComment;
-    private ArrayList<Post> posts;
+    private ArrayList<TextPost> tps = new ArrayList<>();
      
 
     //private void setPageType(int pageType) { this.pageType = pageType; }
@@ -32,6 +32,26 @@ public class Page {
                 currPost.getTime(), currPost.getKarma());
     }
 
+    void addPostToView(TextPost tp) {
+        tps.add(tp);
+    }
+
+    int getNumberOfPosts() {
+        return tps.size();
+    }
+
+    TextPost getTextPostFromList(int idx) {
+        return tps.get(idx);
+    }
+
+    void displayListOfPosts() {
+        tps.forEach((tp) -> {
+            tp.displayPost(tp.getPostID(),
+                tp.getUser().getName(), tp.getTextPost(),
+                tp.getTime(), tp.getKarma());
+        });
+    }
+
     void displayPage(){
         System.out.println("----- Display Page -----");
         System.out.println("User: " + displayCurrUser());
@@ -41,9 +61,9 @@ public class Page {
     }
 
     void sortByTime(boolean ascending){
-        Collections.sort(posts, new Comparator<Post>() {
+        Collections.sort(tps, new Comparator<TextPost>() {
             @Override
-            public int compare(Post n1, Post n2) {
+            public int compare(TextPost n1, TextPost n2) {
                 //Ascending order
                 if (ascending) {
                     return Long.compare(n1.getTime(), n2.getTime());
@@ -54,9 +74,9 @@ public class Page {
         });
     }
     void sortByKarma(boolean ascending){
-        Collections.sort(posts, new Comparator<Post>() {
+        Collections.sort(tps, new Comparator<TextPost>() {
             @Override
-            public int compare(Post n1, Post n2) {
+            public int compare(TextPost n1, TextPost n2) {
                 //Ascending order
                 if (ascending) {
                     return Integer.compare(n1.getKarma(), n2.getKarma());

@@ -1,3 +1,4 @@
+
 public class TextPost extends Post{
     String postContents;
     public TextPost(String post) {
