@@ -9,50 +9,42 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ViewController {
+public class ViewController<filename> {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
-    public void switchToAccountInfoPages(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("signup.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+    public void switchPage(ActionEvent e, String filename) throws IOException {
+        root = FXMLLoader.load(getClass().getResource(filename));
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void switchToAccountInfoPages(ActionEvent e) throws IOException {
+        switchPage(e, "signup.fxml");
     }
 
     public void switchDefaultHomePage(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("default-home-page.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        switchPage(e, "default-home-page.fxml");
     }
 
     public void switchAuthHomePage(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("auth-home-page.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        switchPage(e, "auth-home-page.fxml");
     }
 
     public void switchToDetailedTextPost(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("detailed-post-page.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        switchPage(e, "detailed-post-page.fxml");
+    }
+
+    public void switchToDefaultDetailedTextPost(ActionEvent e) throws IOException {
+        switchPage(e, "default-detailed-post-page.fxml");
     }
 
     public void switchUserList(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("user-list.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        switchPage(e, "user-list.fxml");
     }
 
 }
