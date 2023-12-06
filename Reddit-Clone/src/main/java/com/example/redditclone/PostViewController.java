@@ -9,11 +9,16 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class PostViewController extends ViewController{
+public class PostViewController extends HomePageController{
 
     @Override
     public void switchAuthHomePage(ActionEvent e) throws IOException {
         super.switchAuthHomePage(e);
+    }
+
+    @Override
+    public void switchDefaultHomePage(ActionEvent e) throws IOException {
+        super.switchDefaultHomePage(e);
     }
 
     @Override
