@@ -26,27 +26,36 @@ public class HomePageController extends ViewController{
     @FXML
     private Label postsList;
 
-    ArrayList<String> allPosts = new ArrayList<>();
+    ArrayList<TextPost> allPosts = new ArrayList<>();
 
     String postContents;
-    String postDisplay;
     Random r = new Random();
-    TextPost tp = new TextPost("");
     AccountController accountController = new AccountController();
 
     public void createPost() {
-        postContents = tp.displayPost(r.nextInt(1000), accountController.getName(),
-                post.getText(), System.currentTimeMillis(), tp.getKarma());
+        TextPost tp = new TextPost(post.getText());
+        tp.setPostID(r.nextInt(1000)); //Random post ID for now
+        //tp.setUser();
+        tp.setTime(System.currentTimeMillis());
+        tp.setKarma(1); //Default karma = 1
+        //postContents = tp.displayPost(r.nextInt(1000), accountController.getName(),
+        //        post.getText(), System.currentTimeMillis(), tp.getKarma());
+        allPosts.add(tp); //Add new post to existing ArrayList
         displayPost();
     }
 
     public void displayPost(){
-        if (!(allPosts.contains(postContents))){
-            allPosts.add(postContents);
-            for (String p : allPosts){
-                postDisplay = postDisplay + p;
-            }
+        String postDisplay = "";
+        //if (!(allPosts.contains(postContents))){
+        //    allPosts.add(postContents);
+        //    for (String p : allPosts){
+        //        postDisplay = postDisplay + p;
+        //    }
+        //}
+        for (TextPost tp : allPosts) {
+            postDisplay += tp.displayPost(tp.getPostID(), "null", tp.getTextPost(), tp.getTime(), tp.getKarma());
         }
+    
         postsList.setText(postDisplay);
     }
 

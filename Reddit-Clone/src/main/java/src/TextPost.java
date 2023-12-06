@@ -5,8 +5,8 @@ public class TextPost extends Post{
     public TextPost(String post) {
         super();
         postContents = post; }
-    void setTextPost(String postContents){ this.postContents = postContents; }
-    String getTextPost() { return postContents; }
+    public void setTextPost(String postContents){ this.postContents = postContents; }
+    public String getTextPost() { return postContents; }
 
     //String displayPost(int id, String name, String post, String date, String time, int karma){
     public String displayPost(int id, String name, String post, long time, int karma){
