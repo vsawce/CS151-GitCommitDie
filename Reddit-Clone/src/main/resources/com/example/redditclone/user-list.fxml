@@ -126,7 +126,7 @@
         </AnchorPane>
         <ButtonBar layoutX="718.0" layoutY="11.5" prefHeight="40.0" prefWidth="200.0">
             <buttons>
-            <Button mnemonicParsing="false" onAction="#switchDefaultHomePage" text="Home" />
+            <Button mnemonicParsing="false" onAction="#switchAuthHomePage" text="Home" />
             <Button mnemonicParsing="false" text="User List" />
                 <Button mnemonicParsing="false" text="Account" />
             </buttons>
