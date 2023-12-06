@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import src.TextPost;
 import src.User;
+import src.LoggedInUserSingleton;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,9 +29,10 @@ public class HomePageController extends ViewController{
 
     ArrayList<TextPost> allPosts = new ArrayList<>();
 
+    LoggedInUserSingleton liu = LoggedInUserSingleton.getInstance();
+
     String postContents;
     Random r = new Random();
-    AccountController accountController = new AccountController();
 
     public void createPost() {
         TextPost tp = new TextPost(post.getText());
@@ -53,7 +55,7 @@ public class HomePageController extends ViewController{
         //    }
         //}
         for (TextPost tp : allPosts) {
-            postDisplay += tp.displayPost(tp.getPostID(), "null", tp.getTextPost(), tp.getTime(), tp.getKarma());
+            postDisplay += tp.displayPost(tp.getPostID(), liu.getName(), tp.getTextPost(), tp.getTime(), tp.getKarma());
         }
     
         postsList.setText(postDisplay);

@@ -18,19 +18,19 @@ public class User {
 
     public void setName(String newName)        { this.name = newName; }
     public void setPassword(String newPass)    { this.password = newPass;}
-    void setAuthStatus(boolean newAuth) { this.authStatus = newAuth; }
+    public void setAuthStatus(boolean newAuth) { this.authStatus = newAuth; }
 
     public String getName()                    { return name; }
-    String getPassword()                { return password; }
-    boolean getAuthStatus()             { return authStatus; }
-    int getKarma() {
+    public String getPassword()                { return password; }
+    public boolean getAuthStatus()             { return authStatus; }
+    public int getKarma() {
         updateKarma(); //Update before getting karma
         return totalKarma;
     }
 
-    void addAssociatedPost(Post p)      { associatedPosts.add(p); }
-    void displayAssociatedPosts()       { System.out.println(associatedPosts); }
-    void updateKarma() {
+    public void addAssociatedPost(Post p)      { associatedPosts.add(p); }
+    public void displayAssociatedPosts()       { System.out.println(associatedPosts); }
+    public void updateKarma() {
         int karmaSum = 0;
         for (Post p : associatedPosts) {
             karmaSum += p.getKarma();
@@ -38,17 +38,17 @@ public class User {
         totalKarma = karmaSum;
     }
 
-    int getPostKarmaState(int pid){
+    public int getPostKarmaState(int pid){
         KarmaPostSet post = kpSet.get(pid);
         return post.getUserKarmaState();
     }
 
-    boolean checkPassword(String pwAttempt){
+    public boolean checkPassword(String pwAttempt){
         if (pwAttempt.equals(this.password)) return true;
         else return false;
     }
 
-    void deleteAccount(ArrayList list, int index){ list.remove(index); }
+    public void deleteAccount(ArrayList list, int index){ list.remove(index); }
 }
 
 /**public class User {
